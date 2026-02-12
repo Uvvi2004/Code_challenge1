@@ -23,7 +23,6 @@ body {
 
 .great-vibes {
   font-family: "Great Vibes", cursive;
-  font-weight: 400;
   font-style: normal;
 }
 /* Reduced Motion Preferences */
@@ -65,7 +64,26 @@ body {
 .hero {
   background-color: var(--cupid-pink);
   display: flex;
+  flex-direction: column;
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
   height: 100vh; /* Ensures the container takes up full viewport height for true centering */
+}
+
+@keyframes textAnimation {
+  0% {
+    color: var(--chocolate);
+  }
+  100% {
+    color: var(--vanilla);
+  }
+}
+
+.hero h1 {
+  margin: var(--space-3);
+  animation: textAnimation 3s ease alternate infinite;
+}
+
+.card {
+  
 }
