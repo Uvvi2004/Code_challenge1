@@ -1,115 +1,28 @@
-/* Valentine's Day Color Palette & Variables */
+/* ========================================
+   CUPID'S CANVAS - COMBINED CSS
+   ========================================
+   Combines styles for:
+   - index.html (landing page)
+   - eternal_romance.html (romantic scene)
+   - cupids_garden.html (garden page)
+   - beginning.html (love's beginning)
+======================================== */
+
+/* ========================================
+   GLOBAL STYLES & CSS VARIABLES
+======================================== */
 :root {
-  --cupid-pink: #ffafcc;
   --valentine-red: #ff4d6d;
   --love-purple: #c77dff;
-  --chocolate: #7b3f00;
+  --cupid-pink: #ffafcc;
   --vanilla: #fffaf0;
-
-  /* Spacing Variables */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 1rem;
-  --space-4: 2rem;
 }
+
 * {
   margin: 0;
   padding: 0;
-  z-index: 10;
+  box-sizing: border-box;
 }
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.great-vibes {
-  font-family: "Great Vibes", cursive;
-  font-style: normal;
-}
-/* Reduced Motion Preferences */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition: none !important;
-  }
-}
-
-/* CSS-only page navigation with :target */
-.page {
-  display: none;
-}
-
-.page:target {
-  display: block;
-}
-
-/* Heart animation example */
-@keyframes heartbeat {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.heart {
-  animation: heartbeat 1.5s ease-in-out infinite;
-  transition: transform 0.3s ease;
-}
-
-.hero {
-  background-color: var(--cupid-pink);
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  height: 100vh; /* Ensures the container takes up full viewport height for true centering */
-}
-
-@keyframes textAnimation {
-  0% {
-    color: var(--chocolate);
-  }
-  100% {
-    color: var(--vanilla);
-  }
-}
-
-.hero h1 {
-  margin: var(--space-3);
-  animation: textAnimation 3s ease alternate infinite;
-}
-
-.container {
-  background-color: var(--cupid-pink);
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-}
-
-.card {
-  border-radius: 16px;
-  background-color: white;
-}
-
-.background-image{
-  position: absolute;
-  z-index: 1;
-  object-fit: cover;
-  height: 100vh;
-  width: 100vw;
-:root {
-  --valentine-red: #ff4d6d;
-  --love-purple: #c77dff;
-}
-
-* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -117,8 +30,18 @@ body {
   background: #fffaf0;
 }
 
-/* header */
+/* CUSTOM FONT */
+@font-face {
+  font-family: love_font;
+  src: url('assets/fonts/font.woff') format('woff');
+  font-display: swap;
+}
 
+/* ========================================
+   ETERNAL ROMANCE PAGE STYLES
+======================================== */
+
+/* Header for eternal_romance.html */
 .site-header {
   position: sticky;
   top: 0;
@@ -126,18 +49,25 @@ body {
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
+  z-index: 1000;
 }
 
-.logo { color: white; font-weight: bold; }
+.site-header .logo {
+  color: white;
+  font-weight: bold;
+}
 
-nav a {
+.site-header nav a {
   color: white;
   text-decoration: none;
   margin-left: 1rem;
 }
 
-/* scene */
+.site-header nav a.active {
+  text-decoration: underline;
+}
 
+/* Scene container */
 .scene {
   position: relative;
   height: 90vh;
@@ -145,8 +75,7 @@ nav a {
   background: linear-gradient(to top, #1a0033, #5a189a);
 }
 
-/* stars */
-
+/* Stars */
 .stars {
   position: absolute;
   top: 0;
@@ -156,8 +85,7 @@ nav a {
   opacity: 0.5;
 }
 
-/* moon */
-
+/* Moon */
 .moon {
   position: absolute;
   top: 60px;
@@ -169,8 +97,7 @@ nav a {
   box-shadow: 0 0 60px white;
 }
 
-/* clouds */
-
+/* Clouds */
 .cloud {
   position: absolute;
   width: 300px;
@@ -190,8 +117,7 @@ nav a {
   to { left: 100%; }
 }
 
-/* trees */
-
+/* Trees */
 .tree {
   position: absolute;
   bottom: 0;
@@ -209,8 +135,7 @@ nav a {
   to { transform: rotate(2deg); }
 }
 
-/* path */
-
+/* Path */
 .path {
   position: absolute;
   bottom: 0;
@@ -222,8 +147,7 @@ nav a {
   clip-path: polygon(40% 0%, 60% 0%, 100% 100%, 0% 100%);
 }
 
-/* couple */
-
+/* Couple walking */
 .couple {
   position: absolute;
   bottom: 120px;
@@ -238,8 +162,7 @@ nav a {
   to { transform: translateX(-50%) scale(0.3); bottom: 350px; }
 }
 
-/* fireflies */
-
+/* Fireflies */
 .firefly {
   position: absolute;
   width: 35px;
@@ -256,12 +179,11 @@ nav a {
 .f7 { top: 60%; left: 15%; animation-delay: 12s; }
 
 @keyframes blink {
-  0%,100% { opacity: 0.2; }
+  0%, 100% { opacity: 0.2; }
   50% { opacity: 1; }
 }
 
-/* heart burst */
-
+/* Heart burst interactive feature */
 #burst { display: none; }
 
 .click-layer {
@@ -295,8 +217,7 @@ nav a {
   }
 }
 
-/* chaotic spread */
-
+/* Chaotic spread for individual hearts */
 .h1  { left: 5%;  width: 25px; --x: -200px; animation-delay: 0s; }
 .h2  { left: 12%; width: 35px; --x: 150px;  animation-delay: .2s; }
 .h3  { left: 20%; width: 30px; --x: -250px; animation-delay: .4s; }
@@ -313,20 +234,18 @@ nav a {
 .h14 { left: 48%; width: 42px; --x: 260px;  animation-delay: 2.6s; }
 .h15 { left: 58%; width: 36px; --x: -240px; animation-delay: 2.8s; }
 
-/* hero */
-
-.hero {
+/* Hero section for eternal_romance.html */
+.scene + .hero {
   text-align: center;
   padding: 3rem;
 }
 
-.hero h1 {
+.scene + .hero h1 {
   color: var(--valentine-red);
   font-size: 2.5rem;
 }
 
-/* cards */
-
+/* Romance cards grid */
 .romance-grid {
   display: flex;
   justify-content: center;
@@ -342,10 +261,15 @@ nav a {
   transition: transform .3s;
 }
 
-.card:hover { transform: translateY(-10px); }
+.card:hover {
+  transform: translateY(-10px);
+}
 
-/* footer */
+.card h3 {
+  margin-bottom: 1rem;
+}
 
+/* Footer for eternal_romance.html */
 .site-footer {
   text-align: center;
   padding: 1rem;
@@ -353,18 +277,9 @@ nav a {
   color: white;
 }
 
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-}
-
-/* landing section */
+/* ========================================
+   INDEX.HTML (LANDING PAGE) STYLES
+======================================== */
 
 .landing {
   position: relative;
@@ -375,17 +290,15 @@ body {
   justify-content: center;
 }
 
-/* dark overlay for readability */
-
+/* Dark overlay for readability */
 .overlay {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
-/* content */
-
+/* Content */
 .content {
   position: relative;
   text-align: center;
@@ -404,8 +317,7 @@ body {
   opacity: 0.9;
 }
 
-/* buttons */
-
+/* Navigation buttons */
 .nav-buttons {
   display: flex;
   justify-content: center;
@@ -426,4 +338,182 @@ body {
   background: #ff4d6d;
   color: white;
   transform: translateY(-3px);
+}
+
+/* ========================================
+   CUPIDS_GARDEN.HTML STYLES
+======================================== */
+
+/* Header navigation for cupids_garden.html */
+.header_nav_container {
+  display: flex;
+  background-color: #ffafcc;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.logo_section img {
+  width: 50px;
+  height: 50px;
+}
+
+.nav_list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav_list a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Hero section for cupids_garden.html */
+#hero_section .hero {
+  min-height: 100vh;
+  background-image: url("assets/images/hero_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hero_section .hero_content {
+  text-align: center;
+}
+
+#hero_section .hero_content h1 {
+  animation: heartbeat 1.5s ease-in-out infinite;
+  color: #ff4d6d;
+}
+
+#hero_section .hero_content p {
+  color: #7b3f00;
+}
+
+/* Moonlit walk section */
+#moonlit_walk {
+  min-height: 100vh;
+}
+
+.moon_background {
+  min-height: 100vh;
+  background-image: url("assets/images/moon_walk.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.walk_content {
+  position: relative;
+}
+
+.top-image {
+  width: 250px;
+  height: auto;
+}
+
+/* ========================================
+   BEGINNING.HTML (LOVE'S BEGINNING) STYLES
+======================================== */
+
+/* Navbar for beginning.html */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--valentine-red);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--cupid-pink);
+}
+
+/* Hero section for beginning.html */
+body:has(.navbar) .hero {
+  height: 100vh;
+  background: url("assets/images/background.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+}
+
+body:has(.navbar) .hero-content {
+  text-align: center;
+}
+
+.great-vibes {
+  font-family: "Great Vibes", cursive;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.heart {
+  width: 200px;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Footer for beginning.html */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: var(--valentine-red);
+  color: white;
+}
+
+footer p {
+  margin: 0.5rem 0;
+}
+
+footer blockquote {
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+
+/* ========================================
+   SHARED ANIMATIONS
+======================================== */
+
+/* Heartbeat animation (used by multiple pages) */
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
 }
