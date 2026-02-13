@@ -1,16 +1,4 @@
-/* ========================================
-   CUPID'S CANVAS - COMBINED CSS
-   ========================================
-   Combines styles for:
-   - index.html (landing page)
-   - eternal_romance.html (romantic scene)
-   - cupids_garden.html (garden page)
-   - beginning.html (love's beginning)
-======================================== */
 
-/* ========================================
-   GLOBAL STYLES & CSS VARIABLES
-======================================== */
 :root {
   --valentine-red: #ff4d6d;
   --love-purple: #c77dff;
